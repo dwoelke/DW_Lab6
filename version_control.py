@@ -5,7 +5,17 @@ def encode_password(password):
         encoded_password += encoded_digit
     return encoded_password
 
+def decode_password(in_str):
+    en_str = ''
+    for i in range(0, (len(in_str))):
+        indiv_char = int(in_str[i])
+        indiv_char -= 3
+        en_str += str(indiv_char)
+    return en_str
+
+
 while True:
+    print('')
     print("Menu")
     print("-------------")
     print("1. Encode")
@@ -19,9 +29,9 @@ while True:
         print("Your password has been encoded and stored!")
 
     elif choice == "2":
+        print('')
         if 'encoded_password' in locals():
-            print(
-                f"The encoded password is {encoded_password}, and the original password is {decode_password(encoded_password)}.")
+            print(f"The encoded password is {encoded_password}, and the original password is {decode_password(encoded_password)}.")
         else:
             print("No encoded password has been stored yet.")
 
